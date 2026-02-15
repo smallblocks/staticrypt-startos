@@ -1,0 +1,7 @@
+node_modules/
+javascript/
+*.s9pk
+.DS_Store
+*.log
+app/src/*.js
+app/src/*.js.map
