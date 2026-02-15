@@ -1,5 +1,4 @@
 import { sdk } from '../sdk'
 
-export const actions = sdk.setupActions(async () => {
-  return {}
-})
+// No actions needed for this simple service
+export const actions = sdk.Actions.of()

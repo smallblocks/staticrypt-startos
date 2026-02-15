@@ -1,14 +1,8 @@
-import { setupVersionGraph } from '@start9labs/start-sdk'
+import { VersionGraph } from '@start9labs/start-sdk'
+import { current, other } from './versions'
 
-export const versionGraph = setupVersionGraph({
-  '0.1.0:0': {
-    up: async ({ effects }) => {
-      console.info('Fresh install of StatiCrypt 0.1.0')
-      return {}
-    },
-    down: async ({ effects }) => {
-      console.info('Uninstalling StatiCrypt')
-      return null
-    },
-  },
+export const versionGraph = VersionGraph.of({
+  current,
+  other,
+  preInstall: async (effects) => {},
 })

@@ -1,7 +1,7 @@
 /**
  * Package exports for StartOS
  */
-export { createBackup } from './backups'
+export { createBackup, restoreInit } from './backups'
 export { main } from './main'
 export { init, uninit } from './init'
 export { actions } from './actions'

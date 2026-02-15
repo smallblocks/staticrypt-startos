@@ -1,5 +1,5 @@
 import { sdk } from './sdk'
 
-export const createBackup = sdk.setupBackups(async () => {
-  return {}
-})
+export const { createBackup, restoreInit } = sdk.setupBackups(
+  async ({ effects }) => sdk.Backups.ofVolumes('main'),
+)

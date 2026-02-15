@@ -1,5 +1,4 @@
 import { sdk } from './sdk'
 
-export const dependencies = sdk.setupDependencies(async () => {
-  return {}
-})
+// No external package dependencies required
+export const setDependencies = sdk.setupDependencies(async () => ({}))

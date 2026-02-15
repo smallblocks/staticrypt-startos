@@ -1,11 +1,16 @@
 import { sdk } from '../sdk'
+import { setDependencies } from '../dependencies'
+import { setInterfaces } from '../interfaces'
+import { versionGraph } from '../install/versionGraph'
+import { actions } from '../actions'
+import { restoreInit } from '../backups'
 
-export const init = sdk.setupInit(async ({ effects }) => {
-  console.info('Initializing StatiCrypt...')
-  return {}
-})
+export const init = sdk.setupInit(
+  restoreInit,
+  versionGraph,
+  setInterfaces,
+  setDependencies,
+  actions,
+)
 
-export const uninit = sdk.setupUninit(async ({ effects }) => {
-  console.info('Uninitializing StatiCrypt...')
-  return null
-})
+export const uninit = sdk.setupUninit(versionGraph)
