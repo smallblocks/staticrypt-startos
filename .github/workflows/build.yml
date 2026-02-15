@@ -30,8 +30,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Download start-cli from mempool-madness-startos releases (shared tooling)
-          gh release download tools-v1 --repo smallblocks/mempool-madness-startos --pattern 'start-cli-linux-x86_64.tar.gz'
+          gh release download tools-v1 --repo smallblocks/staticrypt-startos --pattern 'start-cli-linux-x86_64.tar.gz'
           tar xzf start-cli-linux-x86_64.tar.gz
           sudo mv start-cli /usr/local/bin/
           start-cli --version
