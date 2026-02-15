@@ -39,13 +39,19 @@ jobs:
         run: npm run build
         
       - name: Build Docker image
-        run: docker build -t localhost/staticrypt:0.1.0 -f Dockerfile .
+        run: docker build -t staticrypt:0.1.0 -f Dockerfile .
+        
+      - name: Tag Docker image for start-cli
+        run: docker tag staticrypt:0.1.0 localhost/staticrypt:0.1.0
         
       - name: Initialize developer key
         run: start-cli init-key
         
+      - name: Verify Docker image
+        run: docker images | grep staticrypt
+        
       - name: Pack s9pk
-        run: start-cli s9pk pack . -o staticrypt.s9pk
+        run: start-cli s9pk pack . -o staticrypt.s9pk --arch x86_64
         
       - name: Upload s9pk artifact
         uses: actions/upload-artifact@v4
