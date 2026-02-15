@@ -42,10 +42,7 @@ jobs:
         run: npm run build
         
       - name: Build Docker image
-        run: docker build -t staticrypt:0.1.0 -f Dockerfile .
-        
-      - name: Tag Docker image for start-cli
-        run: docker tag staticrypt:0.1.0 localhost/staticrypt:0.1.0
+        run: docker build --load -t localhost/staticrypt:0.1.0 -f Dockerfile .
         
       - name: Initialize developer key
         run: start-cli init-key
